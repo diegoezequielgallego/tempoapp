@@ -2,13 +2,15 @@ ar\com\tempo\test\dto\InputRequestDTO$InputRequestDTOBuilder.class
 ar\com\tempo\test\exception\DoesNotExistException.class
 ar\com\tempo\test\domain\ParameterSap.class
 ar\com\tempo\test\feign\PercentageExternalServiceClient.class
+ar\com\tempo\test\service\PercentageExternalServiceMockImpl.class
 ar\com\tempo\test\config\SwaggerConfig.class
 ar\com\tempo\test\controller\CalculationController.class
 ar\com\tempo\test\service\CalculationService.class
+ar\com\tempo\test\service\PercentageExternalServiceImpl.class
 ar\com\tempo\test\BaseApplication.class
 ar\com\tempo\test\dto\InputRequestDTO.class
 ar\com\tempo\test\dto\PercentageResponseDTO$PercentageResponseDTOBuilder.class
-ar\com\tempo\test\utils\MockPercentageExternalServiceClient.class
+ar\com\tempo\test\service\PercentageExternalService.class
 ar\com\tempo\test\dto\CalculationResponseDTO$CalculationResponseDTOBuilder.class
 ar\com\tempo\test\dto\CalculationResponseDTO.class
 ar\com\tempo\test\repository\ParameterSapDao.class
