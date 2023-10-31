@@ -9,9 +9,13 @@
         <module name="test" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="PAE-procurementplan" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PAE-procurementplan" options="-parameters" />
       <module name="test" options="-parameters" />
     </option>
   </component>
