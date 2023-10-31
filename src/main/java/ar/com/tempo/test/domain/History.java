@@ -4,9 +4,11 @@ import ar.com.tempo.test.dto.InputRequestDTO;
 import ar.com.tempo.test.dto.PercentageResponseDTO;
 import ar.com.tempo.test.utils.InputRequestDTOConverter;
 import ar.com.tempo.test.utils.PercentageResponseDTOConverter;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "history")
 @Entity
 @Data
+@SuperBuilder
 @NoArgsConstructor
 @EqualsAndHashCode
 public class History {

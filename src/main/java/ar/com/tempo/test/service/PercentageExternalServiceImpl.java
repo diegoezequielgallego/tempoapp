@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.cache.annotation.Cacheable;
 
+import javax.naming.ServiceUnavailableException;
+
 @Service
 @Profile("prod")
 public class PercentageExternalServiceImpl implements PercentageExternalService{
@@ -15,9 +17,27 @@ public class PercentageExternalServiceImpl implements PercentageExternalService{
     @Autowired
     private PercentageExternalServiceClient externalServiceClient;
 
+    private volatile PercentageResponseDTO lastValue;
+
+    private final Object lock = new Object();
+
     @Override
     @Cacheable("percentageCache")
-    public PercentageResponseDTO getPercentage() {
-        return externalServiceClient.getPercentage();
+    public PercentageResponseDTO getPercentage() throws ServiceUnavailableException {
+        try {
+            PercentageResponseDTO newValue = externalServiceClient.getPercentage();
+            synchronized (lock) {
+                lastValue = newValue;
+            }
+
+            return newValue;
+        } catch (Exception e) {
+            synchronized (lock) {
+                if (lastValue != null) {
+                    return lastValue;
+                }
+            }
+            throw new ServiceUnavailableException("error to call external service.");
+        }
     }
 }

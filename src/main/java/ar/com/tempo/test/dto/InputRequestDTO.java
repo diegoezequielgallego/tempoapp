@@ -1,11 +1,11 @@
 package ar.com.tempo.test.dto;
 
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@NoArgsConstructor
 public class InputRequestDTO {
 
     private double number1;
