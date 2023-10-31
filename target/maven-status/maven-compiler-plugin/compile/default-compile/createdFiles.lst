@@ -8,6 +8,7 @@ ar\com\tempo\test\service\CalculationService.class
 ar\com\tempo\test\BaseApplication.class
 ar\com\tempo\test\dto\InputRequestDTO.class
 ar\com\tempo\test\dto\PercentageResponseDTO$PercentageResponseDTOBuilder.class
+ar\com\tempo\test\utils\MockPercentageExternalServiceClient.class
 ar\com\tempo\test\dto\CalculationResponseDTO$CalculationResponseDTOBuilder.class
 ar\com\tempo\test\dto\CalculationResponseDTO.class
 ar\com\tempo\test\repository\ParameterSapDao.class

@@ -7,5 +7,6 @@ D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\dto\InputRequestDTO.j
 D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\feign\PercentageExternalServiceClient.java
 D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\repository\ParameterSapDao.java
 D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\service\CalculationService.java
+D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\feign\MockPercentageExternalServiceClient.java
 D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\BaseApplication.java
 D:\dev\repository\tempoapp\src\main\java\ar\com\tempo\test\exception\DoesNotExistException.java

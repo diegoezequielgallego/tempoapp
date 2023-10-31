@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: ar.com.tempo.test.BaseApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.774 s <<< FAILURE! - in ar.com.tempo.test.BaseApplicationTests
-contextLoads  Time elapsed: 0.007 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.034 s <<< FAILURE! - in ar.com.tempo.test.BaseApplicationTests
+contextLoads  Time elapsed: 0.005 s  <<< ERROR!
 java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: java.lang.IllegalStateException: Error processing condition on org.springframework.cloud.openfeign.FeignAutoConfiguration.cachingCapability
-Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.cloud.openfeign.FeignAutoConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93]
-Caused by: java.lang.NoClassDefFoundError: org/springframework/beans/factory/aot/BeanRegistrationAotProcessor
-Caused by: java.lang.ClassNotFoundException: org.springframework.beans.factory.aot.BeanRegistrationAotProcessor
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'calculationController' defined in file [D:\dev\repository\tempoapp\target\classes\ar\com\tempo\test\controller\CalculationController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'calculationService': Unsatisfied dependency expressed through field 'externalServiceClient'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ar.com.tempo.test.feign.PercentageExternalServiceClient': Unexpected exception during bean creation; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'percentage-service.url' in value "${percentage-service.url}"
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'calculationService': Unsatisfied dependency expressed through field 'externalServiceClient'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ar.com.tempo.test.feign.PercentageExternalServiceClient': Unexpected exception during bean creation; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'percentage-service.url' in value "${percentage-service.url}"
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ar.com.tempo.test.feign.PercentageExternalServiceClient': Unexpected exception during bean creation; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'percentage-service.url' in value "${percentage-service.url}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'percentage-service.url' in value "${percentage-service.url}"
 
