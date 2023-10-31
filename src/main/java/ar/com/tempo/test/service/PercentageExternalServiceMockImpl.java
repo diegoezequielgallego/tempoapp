@@ -20,6 +20,11 @@ public class PercentageExternalServiceMockImpl implements PercentageExternalServ
     @Cacheable("percentageCache")
     public PercentageResponseDTO getPercentage() {
         Random random = new Random();
+        int randomInt = random.nextInt(7) + 1;
+        if (randomInt == 3) {
+            throw new RuntimeException("random number 3");
+        }
+
         double randomDouble = 1.0 + (10.0 - 1.0) * random.nextDouble();
         randomDouble = Math.round(randomDouble * 100.0) / 100.0;
         logger.info("return random value in service mock: " + randomDouble);
