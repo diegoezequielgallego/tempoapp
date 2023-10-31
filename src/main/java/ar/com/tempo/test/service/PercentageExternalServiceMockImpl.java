@@ -15,6 +15,7 @@ import java.util.Random;
 public class PercentageExternalServiceMockImpl implements PercentageExternalService{
 
     protected final Log logger = LogFactory.getLog(this.getClass());
+
     @Override
     @Cacheable("percentageCache")
     public PercentageResponseDTO getPercentage() {
