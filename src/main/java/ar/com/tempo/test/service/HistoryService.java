@@ -7,6 +7,8 @@ import ar.com.tempo.test.repository.HistoryRepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -39,4 +41,7 @@ public class HistoryService {
     }
 
 
+    public Page<History> findAll(PageRequest pageable) {
+        return historyRepository.findAll(pageable);
+    }
 }
