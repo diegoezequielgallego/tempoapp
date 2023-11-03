@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.time.Duration;
 
@@ -38,7 +39,7 @@ public class CalculationController {
             CalculationResponseDTO calculationResponseDTO = calculationService.calculate(input);
             return ResponseEntity.ok(calculationResponseDTO);
         } else {
-            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).build();
+            throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS, "Too many requests. Please wait.");
         }
     }
 
