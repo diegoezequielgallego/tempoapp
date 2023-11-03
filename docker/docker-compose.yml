@@ -1,14 +1,6 @@
 version: '3.9'
 
 services:
-  api:
-    build:
-      context: ./api
-    ports:
-      - "8080:8080"
-    depends_on:
-      - application-db-postgres
-
   application-db-postgres:
     container_name: application-db-postgres
     image: postgres
@@ -21,6 +13,19 @@ services:
       - '5432:5432'
     volumes:
       - postgres-application-data:/var/lib/postgresql/data
+
+  api:
+    container_name: spring-boot-tempo-api
+    build:
+      context: ../docker
+    ports:
+      - '8080:8080'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://application-db-postgres:5432/app
+      SPRING_DATASOURCE_USERNAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      - application-db-postgres
 
 volumes:
   postgres-application-data:

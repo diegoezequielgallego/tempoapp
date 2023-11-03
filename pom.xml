@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ar.com.tempo</groupId>
-	<artifactId>test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>api</artifactId>
+	<version>1</version>
 	<name>tempo-test</name>
 	<description>Template for Spring Boot</description>
 	<properties>
