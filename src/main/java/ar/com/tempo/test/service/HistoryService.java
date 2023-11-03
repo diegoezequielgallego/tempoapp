@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.util.Date;
 
 @Service
 public class HistoryService {
@@ -29,7 +32,7 @@ public class HistoryService {
     public void saveCallHistoryAsync(InputRequestDTO input, PercentageResponseDTO percentageResponseDTO, double result) {
         try {
             History history = History.builder()
-                    .timestamp(LocalDateTime.now())
+                    .timestamp(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()))
                     .input(input)
                     .response(percentageResponseDTO)
                     .result(result)

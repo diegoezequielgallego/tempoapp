@@ -6,6 +6,7 @@ import ar.com.tempo.test.dto.PercentageResponseDTO;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.naming.ServiceUnavailableException;
@@ -21,8 +22,10 @@ public class CalculationService {
     @Autowired
     private HistoryService historyService;
 
+    @Value("${calculation.max.retries:3}")
+    private int maxRetries;
+
     public CalculationResponseDTO calculate(InputRequestDTO input) {
-        int maxRetries = 3;
         double result = 0;
 
         for (int retry = 1; retry <= maxRetries; retry++) {
@@ -46,8 +49,9 @@ public class CalculationService {
         PercentageResponseDTO percentageResponseDTO = percentageExternalService.getPercentage();
         double percentage = percentageResponseDTO.getResult();
         double sum = input.getNumber1() + input.getNumber2();
-        historyService.saveCallHistoryAsync(input, percentageResponseDTO, sum);
-        return sum + (sum * percentage / 100);
+        double result = sum + (sum * percentage / 100);
+        historyService.saveCallHistoryAsync(input, percentageResponseDTO, result);
+        return result;
     }
 
     private void waitForRetry() {

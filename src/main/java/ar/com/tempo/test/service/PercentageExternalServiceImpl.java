@@ -5,6 +5,7 @@ import ar.com.tempo.test.feign.PercentageExternalServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.cache.annotation.Cacheable;
 
@@ -12,6 +13,7 @@ import javax.naming.ServiceUnavailableException;
 
 @Service
 @Profile("prod")
+@Scope("singleton")
 public class PercentageExternalServiceImpl implements PercentageExternalService{
 
     @Autowired

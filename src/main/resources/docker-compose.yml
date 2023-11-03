@@ -1,18 +1,26 @@
 version: '3.9'
 
 services:
-  application-db:
-    container_name: application-db
-    image: mysql/mysql-server
+  api:
+    build:
+      context: ./api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - application-db-postgres
+
+  application-db-postgres:
+    container_name: application-db-postgres
+    image: postgres
     restart: always
     environment:
-      MYSQL_DATABASE: app
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_ROOT_HOST: '%'
+      POSTGRES_DB: app
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
     ports:
-      - '3306:3306'
+      - '5432:5432'
     volumes:
-      - mysql-application-data:/var/lib/mysql
+      - postgres-application-data:/var/lib/postgresql/data
 
 volumes:
-  mysql-application-data:
+  postgres-application-data:
