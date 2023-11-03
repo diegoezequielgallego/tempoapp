@@ -17,7 +17,7 @@ services:
   api:
     container_name: spring-boot-tempo-api
     build:
-      context: ../docker
+      context: /
     ports:
       - '8080:8080'
     environment:
