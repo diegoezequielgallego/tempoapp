@@ -27,7 +27,7 @@ public class PercentageExternalServiceImpl implements PercentageExternalService{
     @Cacheable("percentageCache")
     public PercentageResponseDTO getPercentage() throws ServiceUnavailableException {
         try {
-            PercentageResponseDTO newValue = externalServiceClient.getPercentage();
+                PercentageResponseDTO newValue = externalServiceClient.getPercentage();
             synchronized (lock) {
                 lastValue = newValue;
             }
@@ -36,7 +36,7 @@ public class PercentageExternalServiceImpl implements PercentageExternalService{
         } catch (Exception e) {
             synchronized (lock) {
                 if (lastValue != null) {
-                    return lastValue;
+                        return lastValue;
                 }
             }
             throw new ServiceUnavailableException("error to call external service.");
