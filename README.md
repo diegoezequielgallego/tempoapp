@@ -11,3 +11,5 @@
   a. If you want to run "Tempo-app" in a docker container you must execute "docker-compose up" or click in the green arrow beside the name "services" in file "docker-compose.yml" from IntelliJ.
   
   b. If you want to run and debug "Tempo-app" in the IntelliJ you must execute "spring-boot:run -Dspring-boot.run.fork=true" in the "run/debug configuration"
+
+5- You can test the app in swagger in "http://localhost:8080/swagger-ui"
